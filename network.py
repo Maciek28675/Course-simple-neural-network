@@ -49,4 +49,10 @@ class Network():
         for layer in self.layers:
             activations = layer.forward(activations)
         
+        for i in range(len(activations)):
+            if activations[i] > 0.5:
+                activations[i] = 1
+            else:
+                activations[i] = 0
+
         return activations
