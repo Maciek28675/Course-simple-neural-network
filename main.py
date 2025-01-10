@@ -9,6 +9,10 @@ layers = [2, 2, 1]
 lr = 0.1
 epochs = 10000
 
+# TODO: Przerobić tak, zeby dalo sie tworzyc siec modulowo
+#       tj. Warstwa(8), f. aktywacji, Wartswa(8), itd...
+# TODO: Zaimplementowac momentum, adaptive lr i mini batch
+
 neural_network = Network(layers, lr, epochs)
 neural_network.train(inputs, outputs)
 
