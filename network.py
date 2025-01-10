@@ -42,8 +42,7 @@ class Network():
                 mse = total_error / len(inputs)
                 print(f'Epoch {epoch}, MSE: {mse}')
 
-    # The purpose of this method is to use the model, that
-    # has been trained, on new data
+    # The purpose of this method is to use a trained model on new data
     def predict(self, inputs):
         activations = inputs
 

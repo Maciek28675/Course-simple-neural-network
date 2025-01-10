@@ -1,6 +1,18 @@
 import numpy as np
 from network import Network
 
+"""
+    XOR:
+
+    a | b | Output
+   ---------------
+    0 | 0 |   0  
+    0 | 1 |   1
+    1 | 0 |   1
+    1 | 1 |   0
+
+"""
+
 inputs = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
 outputs = np.array([[0], [1], [1], [0]])
 
