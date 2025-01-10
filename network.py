@@ -15,7 +15,8 @@ class Network():
         # Initialize layers
         for i in range (len(layers) - 1):
             self.layers.append(Layer(layers[i+1], layers[i]))
-        
+    
+    # TODO: zwrocic tablice mse zeby moc zrobic wykresy
     def train(self, inputs, outputs):
         for epoch in range(self.epochs):
             total_error = 0

@@ -19,6 +19,8 @@ class Neuron():
         self.inputs = inputs
         self.output = self.sigmoid(np.dot(inputs, self.weights) + self.bias)
 
+        return self.output
+
     # ==== Activation functions ====
 
     def sigmoid(self, x):
