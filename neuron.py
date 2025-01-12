@@ -13,7 +13,7 @@ import numpy as np
 class Neuron():
     def __init__(self, number_of_inputs):
         self.weights = np.random.uniform(size=number_of_inputs)
-        self.bias = np.random.uniform()
+        self.bias = -1
     
     def activate(self, inputs):
         self.inputs = inputs

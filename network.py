@@ -22,7 +22,7 @@ class Network():
     # Step Decay: Reduce learning rate by factor 'drop' every 'epochs_drop'
     def adjust_learning_rate(self, epoch):
         drop = 0.5
-        epochs_drop = 10
+        epochs_drop = 1000
         self.learning_rate = self.initial_learning_rate * np.power(drop, np.floor(epoch / epochs_drop))
         self.learning_rate_history.append(self.learning_rate)
 

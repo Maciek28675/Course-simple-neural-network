@@ -18,7 +18,7 @@ outputs = np.array([[0], [1], [1], [0]])
 
 # 2 input neurons, 2 in hidden layer and 1 output
 layers = [2, 2, 1]
-lr = 0.1
+lr = 0.4
 epochs = 10000
 
 # TODO: Przerobić tak, zeby dalo sie tworzyc siec modulowo
