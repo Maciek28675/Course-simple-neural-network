@@ -13,7 +13,7 @@ import numpy as np
 class Neuron():
     def __init__(self, number_of_inputs):
         self.weights = np.random.uniform(size=number_of_inputs)
-        self.bias = np.random.uniform()
+        self.bias = -1
     
     def activate(self, inputs):
         self.inputs = inputs
@@ -32,6 +32,11 @@ class Neuron():
     def sigmoid_derivative(self):
         return self.output * (1 - self.output)
     
+    def relu_derivative(self):
+        pass
+    
+    # ==============================
+
     def update_weights(self, delta, learning_rate):
         self.weights += learning_rate * delta * self.inputs
         self.bias += learning_rate * delta
