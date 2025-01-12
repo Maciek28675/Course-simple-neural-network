@@ -21,8 +21,8 @@ outputs = np.array([[0], [1], [1], [0]])
 print(np.random.randn(2) * np.sqrt(1 / 2))
 # 2 input neurons, 2 in hidden layer and 1 output
 layers = [2, 2, 1]
-lr = 0.1
-epochs = 15000
+lr = 0.4
+epochs = 10000
 
 # TODO: Przerobić tak, zeby dalo sie tworzyc siec modulowo
 #       tj. Warstwa(8), f. aktywacji, Wartswa(8), itd...
