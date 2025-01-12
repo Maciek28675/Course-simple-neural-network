@@ -32,6 +32,11 @@ class Neuron():
     def sigmoid_derivative(self):
         return self.output * (1 - self.output)
     
+    def relu_derivative(self):
+        pass
+    
+    # ==============================
+
     def update_weights(self, delta, learning_rate):
         self.weights += learning_rate * delta * self.inputs
         self.bias += learning_rate * delta

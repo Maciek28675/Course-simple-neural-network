@@ -14,6 +14,7 @@ class Network():
         self.epochs = epochs
         self.layers = []
         self.learning_rate_history = []
+        self.mse_per_layer = [[] for _ in range(len(layers) - 1)]
 
         # Initialize layers
         for i in range (len(layers) - 1):
@@ -31,7 +32,8 @@ class Network():
         for epoch in range(self.epochs):
             self.adjust_learning_rate(epoch)
             total_error = 0
-
+            temp_mse = [0] * len(self.layers)
+            
             for x, y in zip(inputs, outputs):
                 # Forward pass
                 activations = [x]
@@ -43,17 +45,30 @@ class Network():
                 output_errors = y - activations[-1]
                 total_error += np.sum(output_errors ** 2)
 
+                for i, activation in enumerate(activations[1:], 1):
+                    temp_mse[i - 1] += np.mean((activation - y) ** 2)
+
                 # Backward pass
                 errors = output_errors
                 
                 for i in reversed(range(len(self.layers))):
                     errors = self.layers[i].backward(errors, self.learning_rate)
 
+            # Save calculated mse in history so that you can plot it later
+            for i in range(len(self.layers)):
+                self.mse_per_layer[i].append(temp_mse[i] / len(inputs))
+
+            mse = total_error / len(inputs)
+            
+            if(mse < 0.005):
+                print(f"Goal mse achieved. Terminating training at epoch {epoch}")
+                break
+                
             if epoch % 100 == 0:
                 mse = total_error / len(inputs)
                 print(f'Epoch {epoch}, MSE: {mse}, Learning Rate: {self.learning_rate}')
-        
-        # Plot learning rate history after training
+                
+    # Plot learning rate history after training
         self.plot_learning_rate()
 
     def plot_learning_rate(self):
